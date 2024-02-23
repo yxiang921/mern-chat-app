@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { Toaster } from "react-hot-toast";
+import Register from "./pages/register/Register";
+import Login from "./pages/login/Login";
+import Home from "./pages/home/Home";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useAuthContext } from "./context/AuthContext";
+import { useEffect } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  useEffect(() => {
+    setAuthUser(JSON.parse(localStorage.getItem("chat-user")));
+  }, []);
 
+  const { authUser, setAuthUser } = useAuthContext();
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="w-full h-screen flex justify-center items-center">
+      <Toaster />
+      <Routes>
+        <Route path="/" element={authUser ? <Home /> : <Login />} />
+        <Route
+          path="/login"
+          element={authUser ? <Navigate to={"/"} /> : <Login />}
+        />
+        <Route
+          path="/register"
+          element={authUser ? <Navigate to={"/"} /> : <Register />}
+        />
+      </Routes>
+    </div>
+  );
 }
 
-export default App
+export default App;

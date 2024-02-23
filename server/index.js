@@ -2,15 +2,16 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 
-import authRoutes from "./routes/auth.routes.js"
-import messageRoutes from "./routes/message.routes.js"
-import userRoutes from "./routes/user.routes.js"
+import { app, server } from "./socket/socket.js";
 
-import conn from "./db/conn.js"
+import authRoutes from "./routes/auth.routes.js";
+import messageRoutes from "./routes/message.routes.js";
+import userRoutes from "./routes/user.routes.js";
+
+import conn from "./db/conn.js";
 
 dotenv.config();
 
-const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(express.json()); // Parse incoming request to JSON
@@ -20,7 +21,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/message", messageRoutes);
 app.use("/api/users", userRoutes);
 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-    conn();
-})
+server.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+  conn();
+});
