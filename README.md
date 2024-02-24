@@ -3,6 +3,8 @@
 
 Designed and developed a real-time chat application using the MERN stack (MongoDB, Express.js, React.js, Node.js) for the core architecture. Employed additional technologies such as DaisyUI for Tailwind CSS, Socket.io for real-time communication, JWT for secure authentication, and bcrypt for password hashing.
 
+Demo: https://mern-chat-app-k89m.onrender.com/
+
 
 ## 🛠 Skills
 - Frontend: ReactJS, DaisyUI (TailwindCSS)
