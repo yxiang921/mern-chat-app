@@ -15,7 +15,7 @@ Demo: https://mern-chat-app-k89m.onrender.com/
 
 
 
-## Features
+## 💡 Features
 
 - User authentication & authorization with JWT
 - Real time communication with SocketIO
@@ -26,13 +26,13 @@ Demo: https://mern-chat-app-k89m.onrender.com/
 
 
 
-## Lessons Learned
+## 📝 Lessons Learned
 
 As the project evolves, maintaining clean and scalable code becomes crucial for future development and collaboration. My solution is to adhere to coding best practices, employ modular and well-documented code, and follow a consistent coding style.
 
 Secondly, implementing real-time communication using Socket.IO is also one of the challenging parts. I learned a lot about Socket.IO, including event emission, while building this project.
 
-## Environment Variables
+## 🖥️ Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
 
